@@ -2,6 +2,7 @@
 
 [![Website](https://img.shields.io/badge/Website-Apex_AI_Academy-cbff56?style=flat-square)](https://apexai.academy/)
 [![Public API](https://img.shields.io/badge/API-no_key_needed-cbff56?style=flat-square)](https://apexai.academy/llms.txt)
+[![MCP](https://img.shields.io/badge/MCP-streamable_HTTP-cbff56?style=flat-square)](https://apexai.academy/developers/)
 [![License](https://img.shields.io/badge/License-CC_BY_4.0-blue?style=flat-square)](../LICENSE)
 
 ## What Apex is
@@ -20,7 +21,33 @@ Start with [AI Foundations for Humans and Working with AI Tools](https://apexai.
 
 Use the key-free [content API](https://apexai.academy/api/public/content), [agent reading guide](https://apexai.academy/llms.txt) and [runnable examples](https://github.com/ApexAI-Academy/sample-agents). Cache responses and poll news no more than once every five minutes. Cite original news sources and respect access labels.
 
-[Developer hub](https://apexai.academy/developers/) — planned; returned 404 when checked on 2026-10-15. [Apex MCP integration notes](https://github.com/ApexAI-Academy/sample-agents/tree/main/mcp) — coming soon; the planned endpoint is not live. Learn the protocol in the [MCP documentation](https://modelcontextprotocol.io/).
+
+## Connect your agent to Apex MCP
+
+Apex runs a remote MCP server at `https://apexai.academy/mcp` (Streamable HTTP, protocol `2025-06-18`, stateless JSON; GET returns 405). Public tools need no key.
+
+```json
+{ "mcpServers": { "apex-ai-academy": { "type": "http", "url": "https://apexai.academy/mcp" } } }
+```
+
+Or test it with curl:
+
+```sh
+curl https://apexai.academy/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
+
+Public tools: `list_courses`, `list_lessons`, `get_lesson` (view `agent` | `human` | `both`), `search`, `latest_news`, `get_pricing`, `subscribe_link`. Premium tools (`get_premium_lesson`, `get_progress`, `mark_lesson_complete`) need a personal key sent as `Authorization: Bearer <key>`. Docs: [developer hub](https://apexai.academy/developers/) · [server card](https://apexai.academy/.well-known/mcp.json) · [llms.txt](https://apexai.academy/llms.txt). Rate limit: 60 requests/minute per anonymous IP.
+
+## One lesson, three views
+
+Every lesson page has a Human / Agent / Both switch. The same switch is available in the API (`?view=`) and in MCP `get_lesson`.
+
+| 🧑 Human | 🤖 Agent | Both |
+| --- | --- | --- |
+| ![Human view of "LLMs in plain words"](https://raw.githubusercontent.com/ApexAI-Academy/.github/main/assets/screenshots/view-human.png) | ![Agent view of "LLMs in plain words"](https://raw.githubusercontent.com/ApexAI-Academy/.github/main/assets/screenshots/view-agent.png) | ![Both view of "LLMs in plain words"](https://raw.githubusercontent.com/ApexAI-Academy/.github/main/assets/screenshots/view-both.png) |
+
+_Screenshots of [LLMs in plain words](https://apexai.academy/lesson.html?id=1), captured from the live site on 2026-10-15._
 
 ## Repositories
 
