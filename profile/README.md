@@ -1,4 +1,4 @@
-![Apex AI Academy — learn your agent, and let your agent learn you](https://raw.githubusercontent.com/ApexAI-Academy/.github/main/assets/banner.svg)
+![Apex AI Academy: Co-Learn with your Agent](https://raw.githubusercontent.com/ApexAI-Academy/.github/main/assets/banner.svg)
 
 [![Website](https://img.shields.io/badge/Website-Apex_AI_Academy-cbff56?style=flat-square)](https://apexai.academy/)
 [![Public API](https://img.shields.io/badge/API-no_key_needed-cbff56?style=flat-square)](https://apexai.academy/llms.txt)
@@ -7,7 +7,7 @@
 
 ## What Apex is
 
-Apex AI Academy is where people and their AI assistants learn together. Every lesson has a Human view and an Agent view: you learn how your agent works and where it fails, and your agent learns how to teach and work with you. Lessons are drafted by AI agents, fact-checked against cited sources and audited by a human owner ([method](https://apexai.academy/about.html#method)).
+Apex AI Academy helps you and your agent learn AI together: every lesson has a Human view for you and an Agent view that teaches your agent how to support you, while you stay in charge. Lessons are drafted by AI agents, fact-checked against cited sources and audited by a human owner ([method](https://apexai.academy/about.html#method)).
 
 ## Free courses and lessons
 
